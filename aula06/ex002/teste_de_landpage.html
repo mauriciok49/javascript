@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body { 
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        main { 
+            display: flex;
+            justify-content: center;
+            height: 500vh;
+            width: 100%;
+        }
+        
+        .section-slides { 
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            width: 100vw;
+            height: 500vh;
+            border: 1px solid black;
+        }
+
+        .section-slide{
+            border: 1px solid red;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            opacity: 0;
+            transform: translateY(100px);
+            transition: all 0.3s ease;
+        }
+
+    .section-slide.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Diferenciação de cores pra visualizar */
+    .section-slide:nth-child(1) { background: #ff0000; z-index: 1; }
+    .section-slide:nth-child(2) { background: #ff2c2c; z-index: 2; }
+    .section-slide:nth-child(3) { background: #ff4646; z-index: 3; }
+    .section-slide:nth-child(4) { background: #ffacac; z-index: 4; }
+    .section-slide:nth-child(5) { background: #666; z-index: 5; }
+    </style>
+</head>
+<body>
+    <main>
+        <section class="section-slides">
+            <section class="section-slide"><h1>Sessao 1</h1></section>
+            <section class="section-slide"><h1>Sessao 2</h1></section>
+            <section class="section-slide"><h1>Sessao 3</h1></section>
+            <section class="section-slide"><h1>Sessao 4</h1></section>
+            <section class="section-slide"><h1>Sessao 5</h1></section>
+        </section>
+    </main>
+
+    <script>
+    const slides = document.querySelectorAll('.section-slide');
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      {
+        threshold: 0.5
+      }
+    );
+
+    slides.forEach(slide => observer.observe(slide));
+  </script>
+</body>
+</html>
