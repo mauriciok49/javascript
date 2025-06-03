@@ -8,13 +8,36 @@
         #area {
             background: green;
             color: white ;
-
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <div id="area">
-        interaja...lllllllllllllll
+    <div id="area" onclick="clicar()" onmouseenter="entrar()" onmouseleave="sair()">
+        interaja...
     </div>
+    <script>
+        function clicar() {
+            var a = document.getElementById('area');
+            a.innerText = 'clicou!';
+            a.style.background = 'blue';
+        }
+
+        function entrar() {
+            var e = document.getElementById('area');
+            e.style.background = 'red';
+            e.innerText = 'entrou!';
+        }
+
+        function sair() {
+            var s = document.getElementById('area');
+            s.style.background = 'green';
+            s.innerText = 'saiu!';
+        }
+
+    </script>
 </body>
 </html>
