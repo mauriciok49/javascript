@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        main {
+            display: flex;
+        
+            align-items: center;
+            flex-direction: column;
+            
+        }
+
+        #container {
+            display: flex;
+            width: 600px;
+            height: 500px;
+            border: 1px solid rgb(255, 0, 0);
+            flex-direction: column;
+            align-items: start;
+        }
+
+        #resultado { 
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid rgb(0, 0, 0);
+        }
+
+        #mensagem {
+            font-size: 20px;
+            font-weight: bold;
+            border: 1px solid rgb(0, 0, 0);
+            width: 50%;
+            height: 30px;
+        }
+
+        #imagem {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <main class="main">
+        <h1>Verificador de Idade</h1>
+        <div id="container">
+            <div id="formulario">
+                <p>
+                    <label for="anoNascimento">Ano de Nascimento : </label>
+                    <input type="number" name="txtano" id="anoNascimento">
+                </p>
+                <p>
+                    <label for="sexo">sexo: </label>
+                    <input type="radio" name="sexo" id="masculino">
+                    <label for="masculino">masculino</label>
+                    <input type="radio" name="sexo" id="feminino">
+                    <label for="feminino">feminino</label>
+                </p>
+                <input type="submit" value="verificar" id="verficar" onclick="verificaridade()">
+            </div>
+
+            <div id="resultado">
+                <p id="mensagem"></p>
+                <img src="" alt="" id="imagem">
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function verificaridade() {
+
+        let anoNascimento = document.getElementById("anoNascimento");
+        let masculino = document.getElementById("masculino");
+        let feminino = document.getElementById("feminino");
+        let verificar = document.getElementById("verficar");
+        let mensagem = document.getElementById("mensagem");
+        let imagem = document.getElementById("imagem");
+        let anoAtual = new Date().getFullYear();
+
+        }
+    </script>
+</body>
+</html>
