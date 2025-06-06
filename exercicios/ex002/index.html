@@ -4,64 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-
-        body {
-            background-color: rgb(109, 172, 255);
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        header {
-            text-align: center;
-            margin-top: 50px;
-            font-size: 40px;
-            font-weight: bold;
-            color: white;
-        }
-
-        section {
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            align-items: start;
-            width: 70%;
-            margin: auto;
-            margin-top: 30px;
-            padding: 10px;
-            background-color: white;
-            border: 1px solid black;
-            border-radius: 20px;
-            
-        }
-        #formulario {
-                
-                width: 100%;
-        }
-
-        #resultado { 
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            margin-top: 10px;
-            
-        }
-
-        #mensagem {
-            font-size: 20px;
-            font-weight: bold;
-            border: 1px solid rgb(0, 0, 0);
-            width: 50%;
-            height: 30px;
-        }
-
-        #imagem {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            border: 1px solid rgb(0, 0, 0);
-        }
-    </style>
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
     <header>Verificador de idade</header>
@@ -86,54 +29,6 @@
             </div>
     </section>
 
-    <script>
-        function verificaridade() {
-            let anoAtual = new Date().getFullYear();
-            var fano = document.getElementById("txtano")
-            var resultado = document.getElementById("resultado");
-            if (fano.value.length == 0 || fano.value > anoAtual) {
-                window.alert('[erro] Verifique os dados e tente novamente!')
-            }else {
-                var fsex = document.getElementsByName("sexo")
-                var idade = anoAtual - Number(fano.value)
-                var genero = ''
-                var img = document.createElement('img')
-                img.setAttribute('id', 'imagem')
-                if (fsex[0].checked) {
-                    genero = 'homem'
-                    if (idade >= 0 && idade < 10) {
-                        img.setAttribute('src', 'imagens/childman.png')
-                    }else if (idade < 21) {
-                        img.setAttribute('src', 'imagens/youngman.png')
-                    }else if (idade > 21 && idade < 50) {
-                        img.setAttribute('src', 'imagens/midleman.png')
-                    }else {
-                        img.setAttribute('src', 'imagens/oldman.png')
-                    }
-
-                } else if (fsex[1].checked) {
-                    genero = 'mulher'
-                    if (idade >= 0 && idade < 10) {
-                        img.setAttribute('src', 'imagens/childwoman.png')
-                    }else if (idade < 21) {
-                        img.setAttribute('src', 'imagens/youngwoman.png')
-                    }else if (idade > 21 && idade < 50) {
-                        img.setAttribute('src', 'imagens/midlewoman.png')
-                    }else {
-                        img.setAttribute('src', 'imagens/oldwoman.png')
-                    }
-                } else {
-                    window.alert('[erro] Verifique os dados e tente novamente!')
-                }
-            }
-            resultado.style.textAlign = 'center';
-            resultado.innerHTML = `Detectamos ${genero} com ${idade} anos.`
-            resultado.appendChild(img);
-            img.style.margin = 'auto';
-            img.style.marginTop = '10px';
-        
-
-        }
-    </script>
+    <script src="script/script.js"></script>
 </body>
 </html>
