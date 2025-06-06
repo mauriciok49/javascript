@@ -6,21 +6,36 @@
     <title>Document</title>
     <style>
 
-        main {
-            display: flex;
-        
-            align-items: center;
-            flex-direction: column;
-            
+        body {
+            background-color: rgb(109, 172, 255);
+            font-family: Arial, Helvetica, sans-serif;
         }
 
-        #container {
+        header {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 40px;
+            font-weight: bold;
+            color: white;
+        }
+
+        section {
             display: flex;
-            width: 600px;
-            height: 500px;
-            border: 1px solid rgb(255, 0, 0);
+            align-items: center;
             flex-direction: column;
             align-items: start;
+            width: 70%;
+            margin: auto;
+            margin-top: 30px;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid black;
+            border-radius: 20px;
+            
+        }
+        #formulario {
+                
+                width: 100%;
         }
 
         #resultado { 
@@ -28,8 +43,8 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            border: 1px solid rgb(0, 0, 0);
+            margin-top: 10px;
+            
         }
 
         #mensagem {
@@ -41,19 +56,20 @@
         }
 
         #imagem {
-            width: 300px;
-            height: 300px;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 1px solid rgb(0, 0, 0);
         }
     </style>
 </head>
 <body>
-    <main class="main">
-        <h1>Verificador de Idade</h1>
-        <div id="container">
+    <header>Verificador de idade</header>
+    <section class="main">
             <div id="formulario">
                 <p>
-                    <label for="anoNascimento">Ano de Nascimento : </label>
-                    <input type="number" name="txtano" id="anoNascimento">
+                    <label for="txtano">Ano de Nascimento : </label>
+                    <input type="number" name="txtano" id="txtano">
                 </p>
                 <p>
                     <label for="sexo">sexo: </label>
@@ -66,22 +82,56 @@
             </div>
 
             <div id="resultado">
-                <p id="mensagem"></p>
-                <img src="" alt="" id="imagem">
+                preeencha os dados acima
             </div>
-        </div>
-    </main>
+    </section>
 
     <script>
         function verificaridade() {
+            let anoAtual = new Date().getFullYear();
+            var fano = document.getElementById("txtano")
+            var resultado = document.getElementById("resultado");
+            if (fano.value.length == 0 || fano.value > anoAtual) {
+                window.alert('[erro] Verifique os dados e tente novamente!')
+            }else {
+                var fsex = document.getElementsByName("sexo")
+                var idade = anoAtual - Number(fano.value)
+                var genero = ''
+                var img = document.createElement('img')
+                img.setAttribute('id', 'imagem')
+                if (fsex[0].checked) {
+                    genero = 'homem'
+                    if (idade >= 0 && idade < 10) {
+                        img.setAttribute('src', 'imagens/childman.png')
+                    }else if (idade < 21) {
+                        img.setAttribute('src', 'imagens/youngman.png')
+                    }else if (idade > 21 && idade < 50) {
+                        img.setAttribute('src', 'imagens/midleman.png')
+                    }else {
+                        img.setAttribute('src', 'imagens/oldman.png')
+                    }
 
-        let anoNascimento = document.getElementById("anoNascimento");
-        let masculino = document.getElementById("masculino");
-        let feminino = document.getElementById("feminino");
-        let verificar = document.getElementById("verficar");
-        let mensagem = document.getElementById("mensagem");
-        let imagem = document.getElementById("imagem");
-        let anoAtual = new Date().getFullYear();
+                } else if (fsex[1].checked) {
+                    genero = 'mulher'
+                    if (idade >= 0 && idade < 10) {
+                        img.setAttribute('src', 'imagens/childwoman.png')
+                    }else if (idade < 21) {
+                        img.setAttribute('src', 'imagens/youngwoman.png')
+                    }else if (idade > 21 && idade < 50) {
+                        img.setAttribute('src', 'imagens/midlewoman.png')
+                    }else {
+                        img.setAttribute('src', 'imagens/oldwoman.png')
+                    }
+                } else {
+                    window.alert('[erro] Verifique os dados e tente novamente!')
+                }
+            }
+            resultado.style.textAlign = 'center';
+            resultado.innerHTML = `Detectamos ${genero} com ${idade} anos.`
+            resultado.appendChild(img);
+            img.style.margin = 'auto';
+            img.style.marginTop = '10px';
+        
 
         }
     </script>
