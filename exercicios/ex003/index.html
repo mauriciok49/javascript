@@ -42,7 +42,7 @@
 
             for (let i = Number(inicio); i <= Number(fim); i += Number(passo)) {
                 if (inicio === "" || fim === "" || passo === "") {
-                window.alert = "Impossível contar!";
+                window.alert("Impossível contar!");
             } else if (Number(passo) <= 0) {
                 resultado.innerHTML = "Passo inválido! Considerando passo 1";
                 passo = 1;
@@ -50,6 +50,7 @@
                 resultado.innerHTML += `${i} \u{1F449} `
             }
             resultado.innerHTML += `\u{1F3C1} `
+        
             
             
             
