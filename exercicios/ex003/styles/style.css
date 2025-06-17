@@ -46,10 +46,3 @@ body {
             width: 50%;
             height: 30px;
         }
-
-        #imagem {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            border: 1px solid rgb(0, 0, 0);
-        }
