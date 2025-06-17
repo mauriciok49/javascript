@@ -32,41 +32,6 @@
     </section>
     
 
-    <script>
-            function contar() {
-            var inicio = document.getElementById("ninicio").value;
-            var fim = document.getElementById("nfim").value;
-            var passo = document.getElementById("npasso").value;
-
-            var resultado = document.getElementById("resultado");
-
-            // Verifica se algum campo está vazio
-            if (inicio === "" || fim === "" || passo === "") {
-                window.alert("Impossível contar! Preencha todos os campos.");
-                resultado.innerHTML = "Preparando a contagem...";
-                return; // Sai da função
-            }
-
-            // Converte os valores
-            inicio = Number(inicio);
-            fim = Number(fim);
-            passo = Number(passo);
-
-            // Verifica se o passo é válido
-            if (passo <= 0) {
-                window.alert("Passo inválido! Considerando passo 1");
-                passo = 1;
-            }
-
-            resultado.innerHTML = "Contando: <br>";
-
-            for (let i = inicio; i <= fim; i += passo) {
-                resultado.innerHTML += `${i} \u{1F449} `;
-            }
-
-            resultado.innerHTML += `\u{1F3C1}`;
-        }
-
-        </script>
+    <script src="script/script.js"></script>
 </body>
 </html>
