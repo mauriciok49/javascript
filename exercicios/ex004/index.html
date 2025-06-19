@@ -13,29 +13,19 @@
                 <p>
                     <label for="numeroo">Numero : </label>
                     <input type="number" name="numero" id="num">
-                    <input type="submit" value="verificar" id="verficar" onclick="contar()">
+                    <input type="submit" value="verificar" id="verficar" onclick="tabuada()">
                 </p>
                 
                 
             </div>
 
-            <div id="resultado">
-                preeencha os dados acima
+            <div>
+                <select name="tabuada" id="seltab" size="10">
+                    <option value="">Digite um numero acima</option>
+                </select>
             </div>
     </section>
 
-    <script>
-            function contar() {
-            
-            for (let i = 1 ; i <= 10 ; i++ ) {
-                var numero = document.getElementById("num").value;
-            var res = numero * i
-
-            resultado.innerHTML = `${numero} x ${i} = ${res}`
-            console.log(`${numero} x ${i} = ${res}`)
-            }
-        }
-
-        </script>
+   <script src="script/script.js"></script>
 </body>
 </html>
